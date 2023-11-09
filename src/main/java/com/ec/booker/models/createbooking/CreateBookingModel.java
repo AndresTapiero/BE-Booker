@@ -1,13 +1,12 @@
-package com.ec.booker.models;
+package com.ec.booker.models.createbooking;
 
-import com.ec.booker.models.createbooking.BookingDates;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BookingModel {
+public class CreateBookingModel {
 
     @JsonProperty("firstname")
     private String firstname;
@@ -22,7 +21,7 @@ public class BookingModel {
     private boolean depositpaid;
 
     @JsonProperty("bookingdates")
-    private BookingDates bookingDates;
+    private CreateBookingDates bookingDates;
 
     @JsonProperty("additionalneeds")
     private String additionalneeds;
@@ -59,11 +58,11 @@ public class BookingModel {
         this.depositpaid = depositpaid;
     }
 
-    public BookingDates getBookingDates() {
+    public CreateBookingDates getBookingDates() {
         return bookingDates;
     }
 
-    public void setBookingDates(BookingDates bookingDates) {
+    public void setBookingDates(CreateBookingDates bookingDates) {
         this.bookingDates = bookingDates;
     }
 

@@ -2,7 +2,7 @@ package com.ec.booker;
 
 import com.ec.booker.Utils.file.JsonFiles;
 import com.ec.booker.actions.CreateBookingAction;
-import com.ec.booker.models.BookingModel;
+import com.ec.booker.models.createbooking.CreateBookingModel;
 
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -17,7 +17,7 @@ public class CreateBookingTest {
 
     @Test
     public void createBooking(){
-        BookingModel bookingModel = JsonFiles.getObjectJava("./src/test/resources/data/", "createNewBooking", BookingModel.class);
+        CreateBookingModel bookingModel = JsonFiles.getObjectJava("./src/test/resources/data/", "createNewBooking", CreateBookingModel.class);
         createBookingAction.createNewBooking(bookingModel);
     }
 }
