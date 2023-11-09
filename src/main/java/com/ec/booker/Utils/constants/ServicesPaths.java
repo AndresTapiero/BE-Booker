@@ -1,7 +1,8 @@
 package com.ec.booker.Utils.constants;
 
 public enum ServicesPaths {
-    LOGIN("/auth");
+    LOGIN("/auth"),
+    CREATE_BOOKING("/booking");
 
     private String path;
 

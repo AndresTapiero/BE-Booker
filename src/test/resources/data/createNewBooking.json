@@ -1,0 +1,11 @@
+{
+  "firstname" : "Tom",
+  "lastname" : "Sawyer",
+  "totalprice" : 113,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2023-11-09",
+    "checkout" : "2024-01-01"
+  },
+  "additionalneeds" : "Dinner"
+}
