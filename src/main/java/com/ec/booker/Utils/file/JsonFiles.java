@@ -1,16 +1,14 @@
-package Utils.file;
+package com.ec.booker.Utils.file;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.thucydides.core.steps.StepInterceptor;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
-import static Utils.file.ExceptionMessages.ERROR_READING_JSON_FILE;
+import static com.ec.booker.Utils.file.ExceptionMessages.ERROR_READING_JSON_FILE;
 
 public class JsonFiles<T> {
     private static final Logger LOGGER = LoggerFactory.getLogger(StepInterceptor.class);

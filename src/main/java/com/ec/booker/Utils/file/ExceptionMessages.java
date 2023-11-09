@@ -1,4 +1,4 @@
-package Utils.file;
+package com.ec.booker.Utils.file;
 
 public enum ExceptionMessages {
     ERROR_READING_JSON_FILE("Error al leer archivo Json ");
