@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '3.2.0'
+    junitVersion = '4.13.1'
+    assertJVersion = '3.8.0'
+    logbackVersion = '1.2.3'
+    lombokVersion = '1.18.20'
+}
+
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.2'
+    "net.serenity-bdd:serenity-rest-assured:${serenityCoreVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
