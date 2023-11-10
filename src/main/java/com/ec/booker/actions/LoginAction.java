@@ -13,7 +13,7 @@ import static com.ec.booker.Utils.constants.ServicesPaths.LOGIN;
 public class LoginAction {
 
     @Step
-    public void postLogin(LoginModel login){
+    public void postLogin(LoginModel login) {
         SerenityRest.given().log().all().baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON).body(login)
                 .when().post(LOGIN.getPath())

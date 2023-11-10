@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreateBookingModel {
+public class BookingModel {
 
     @JsonProperty("firstname")
     private String firstname;
@@ -21,7 +21,7 @@ public class CreateBookingModel {
     private boolean depositpaid;
 
     @JsonProperty("bookingdates")
-    private CreateBookingDates bookingDates;
+    private BookingDatesModel bookingDates;
 
     @JsonProperty("additionalneeds")
     private String additionalneeds;
@@ -58,11 +58,11 @@ public class CreateBookingModel {
         this.depositpaid = depositpaid;
     }
 
-    public CreateBookingDates getBookingDates() {
+    public BookingDatesModel getBookingDates() {
         return bookingDates;
     }
 
-    public void setBookingDates(CreateBookingDates bookingDates) {
+    public void setBookingDates(BookingDatesModel bookingDates) {
         this.bookingDates = bookingDates;
     }
 

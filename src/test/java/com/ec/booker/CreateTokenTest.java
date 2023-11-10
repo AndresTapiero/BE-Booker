@@ -10,11 +10,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(SerenityRunner.class)
-public class CreateToken {
+public class CreateTokenTest {
 
     @Steps
     LoginAction loginAction;
-
 
     @Test
     public void login() {

@@ -17,4 +17,14 @@ public class GetBookingsTest {
     public void getBookings() {
         getBookingsAction.getBookings();
     }
+
+    @Test
+    public void getBookingById() {
+        getBookingsAction.getBookingById("850");
+    }
+
+    @Test
+    public void getBookingByName() {
+        getBookingsAction.getBookingByName("Jim", "Brown");
+    }
 }
