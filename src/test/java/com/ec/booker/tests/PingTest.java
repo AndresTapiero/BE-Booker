@@ -1,4 +1,4 @@
-package com.ec.booker;
+package com.ec.booker.tests;
 
 import com.ec.booker.actions.PingAction;
 import net.serenitybdd.annotations.Steps;

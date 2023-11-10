@@ -1,4 +1,4 @@
-package com.ec.booker;
+package com.ec.booker.tests;
 
 import com.ec.booker.Utils.file.JsonFiles;
 import com.ec.booker.actions.LoginAction;
