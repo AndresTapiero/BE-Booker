@@ -1,13 +1,12 @@
 package com.ec.booker.actions;
 
-import com.ec.booker.models.createbooking.BookingModel;
 import io.restassured.http.ContentType;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import org.apache.http.HttpStatus;
 
-import static com.ec.booker.Utils.constants.Constants.*;
-import static com.ec.booker.Utils.constants.ServicesPaths.BOOKING;
+import static com.ec.booker.utils.constants.Constants.*;
+import static com.ec.booker.utils.constants.ServicesPaths.BOOKING;
 
 
 public class DeleteBookingAction {
