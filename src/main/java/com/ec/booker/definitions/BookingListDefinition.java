@@ -12,7 +12,7 @@ public class BookingListDefinition {
     @Steps
     GetBookingsAction getBookingsAction;
 
-    @Dado("Que consulto el servicio para traer los bookingid")
+    @Dado("que consulto el servicio para traer los bookingid")
     public void setCreateBookingAction() {
         bookingList = getBookingsAction.getBookingLists();
     }

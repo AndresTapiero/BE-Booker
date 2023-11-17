@@ -14,12 +14,12 @@ public class HealthCheckDefinition {
     @Steps
     HealthCheckAction checkAction;
 
-    @Dado("Que hago ping al endpointcon con respuesta 201")
+    @Dado("que hago ping al endpointcon con respuesta 201")
     public void setCreateBookingAction() {
         status = checkAction.ping();
     }
 
-    @Entonces("Validare el mensaje created")
+    @Entonces("validare el mensaje created")
     public void validateResponse() {
         Assert.assertEquals(CREATED.getValue(), status);
     }

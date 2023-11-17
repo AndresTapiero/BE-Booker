@@ -1,29 +1,17 @@
 package com.ec.booker.definitions;
 
-import com.ec.booker.actions.LoginAction;
 import com.ec.booker.actions.UpdateBookingAction;
-import com.ec.booker.models.LoginModel;
 import com.ec.booker.models.createbooking.BookingModel;
 import com.ec.booker.utils.file.JsonFiles;
-import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.annotations.Steps;
 
 public class UpdateDefinition {
 
-    String token;
+    String token = LoginDefinition.token;
     @Steps
     UpdateBookingAction updateBookingAction;
 
-    @Steps
-    LoginAction loginAction;
-
-
-    @Cuando("hago login")
-    public void login() {
-        LoginModel login = JsonFiles.getObjectJava("./src/test/resources/data/", "login", LoginModel.class);
-        token = loginAction.getTokenLogin(login);
-    }
 
     @Entonces("al actualizar validare los atributos")
     public void updateCompleteBooking() {
