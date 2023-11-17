@@ -1,35 +1,38 @@
 package com.ec.booker.actions;
 
-import com.ec.booker.models.createbooking.BookingModel;
 import io.restassured.http.ContentType;
+import io.restassured.response.ValidatableResponse;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import org.apache.http.HttpStatus;
 
-import static com.ec.booker.Utils.constants.Constants.BASE_URI;
-import static com.ec.booker.Utils.constants.ServicesPaths.BOOKING;
+import static com.ec.booker.utils.constants.Constants.BASE_URI;
+import static com.ec.booker.utils.constants.ServicesPaths.BOOKING;
 
 
 public class GetBookingsAction {
 
     @Step
-    public void getBookings() {
-        SerenityRest.given().log().all().baseUri(BASE_URI.getValue())
+    public Object[] getBookingLists() {
+        Object[] list = new ValidatableResponse[]{SerenityRest.given().log().all().baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON)
                 .when().get(BOOKING.getPath())
                 .then()
-                .statusCode(HttpStatus.SC_OK).log().all();
+                .statusCode(HttpStatus.SC_OK).log().all()};
+
+        return list;
     }
 
 
     @Step("Validate status 200")
-    public BookingModel getBookingById(String id) {
-        SerenityRest.given().log().all().baseUri(BASE_URI.getValue())
+    public String getBookingById(String id) {
+      String name = SerenityRest.given().baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON)
                 .when().get(BOOKING.getPath() + "/" + id)
                 .then()
-                .statusCode(HttpStatus.SC_OK).log().all();
-        return SerenityRest.lastResponse().as(BookingModel.class);
+                .statusCode(HttpStatus.SC_OK).log().all()
+                .extract().jsonPath().get("firstname");
+      return name;
     }
 
     @Step

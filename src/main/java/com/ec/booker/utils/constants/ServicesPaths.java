@@ -1,4 +1,4 @@
-package com.ec.booker.Utils.constants;
+package com.ec.booker.utils.constants;
 
 public enum ServicesPaths {
     LOGIN("/auth"),
