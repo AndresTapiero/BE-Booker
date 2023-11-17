@@ -48,3 +48,7 @@ serenity {
     reports = ["single-page-html"]
 }
 gradle.startParameter.continueOnFailure = true
+
+test {
+    maxParallelForks = 1
+}

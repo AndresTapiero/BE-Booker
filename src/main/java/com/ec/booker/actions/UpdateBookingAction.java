@@ -6,31 +6,41 @@ import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import org.apache.http.HttpStatus;
 
-import static com.ec.booker.Utils.constants.Constants.*;
-import static com.ec.booker.Utils.constants.ServicesPaths.BOOKING;
+import static com.ec.booker.utils.constants.Constants.*;
+import static com.ec.booker.utils.constants.ServicesPaths.BOOKING;
+import static org.hamcrest.Matchers.equalTo;
 
 
 public class UpdateBookingAction {
 
     @Step
-    public void updateCompleteBooking(BookingModel bookingModel, String id) {
+    public void updateCompleteBooking(String token, BookingModel bookingModel, String id) {
         SerenityRest.given().log().all()
-                .header(AUTHORIZATION.getValue(),AUTHORIZATION_VALUE.getValue())
+                .header(COOKIE.getValue(), "token=" + token)
                 .baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON).body(bookingModel)
                 .when().put(BOOKING.getPath()+"/"+ id)
                 .then()
-                .statusCode(HttpStatus.SC_OK).log().all();
+                .statusCode(HttpStatus.SC_OK)
+                .assertThat()
+                .body(FIRST_NAME.getValue(), equalTo("Michi"))
+                .body(LAST_NAME.getValue(), equalTo("Sawyer"))
+                .body(TOTAL_PRICE.getValue(), equalTo(115))
+                .body(ADDITIONAL_NEEDS.getValue(), equalTo("Breakfast"));
     }
 
     @Step
-    public void updatePartialBooking(BookingModel bookingModel, String id) {
-        SerenityRest.given().log().all()
-                .header(AUTHORIZATION.getValue(), AUTHORIZATION_VALUE.getValue())
+    public void updatePartialBooking(String token, BookingModel bookingModel, String id) {
+        SerenityRest.given()
+                .header(COOKIE.getValue(), "token=" + token)
                 .baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON).body(bookingModel)
                 .when().patch(BOOKING.getPath()+"/"+ id)
                 .then()
-                .statusCode(HttpStatus.SC_OK).log().all().extract().jsonPath().get("firstname");
+                .statusCode(HttpStatus.SC_OK)
+                .assertThat()
+                .body(FIRST_NAME.getValue(), equalTo("Andrew"))
+                .body(LAST_NAME.getValue(), equalTo("Tapi"))
+                .log().all();
     }
 }

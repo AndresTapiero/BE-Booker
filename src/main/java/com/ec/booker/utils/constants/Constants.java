@@ -7,6 +7,9 @@ public enum Constants {
 
     TOKEN("token"),
     FIRST_NAME("firstname"),
+    LAST_NAME("lastname"),
+    TOTAL_PRICE("totalprice"),
+    ADDITIONAL_NEEDS("additionalneeds"),
     COOKIE("Cookie"),
     AUTHORIZATION_VALUE("Basic YWRtaW46cGFzc3dvcmQxMjM="),
     BOOKING_ID("bookingid"),

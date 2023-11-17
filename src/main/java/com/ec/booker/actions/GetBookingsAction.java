@@ -7,6 +7,7 @@ import net.serenitybdd.rest.SerenityRest;
 import org.apache.http.HttpStatus;
 
 import static com.ec.booker.utils.constants.Constants.BASE_URI;
+import static com.ec.booker.utils.constants.Constants.FIRST_NAME;
 import static com.ec.booker.utils.constants.ServicesPaths.BOOKING;
 
 
@@ -31,7 +32,7 @@ public class GetBookingsAction {
                 .when().get(BOOKING.getPath() + "/" + id)
                 .then()
                 .statusCode(HttpStatus.SC_OK).log().all()
-                .extract().jsonPath().get("firstname");
+                .extract().jsonPath().get(FIRST_NAME.getValue());
       return name;
     }
 
