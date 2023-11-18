@@ -11,12 +11,12 @@ import static com.ec.booker.utils.constants.ServicesPaths.PING;
 
 public class HealthCheckAction {
     @Step
-    public String ping() {
+    public String ping(int status) {
        String response = SerenityRest.given().log().all().baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON)
                 .when().get(PING.getPath())
                 .then()
-                .statusCode(HttpStatus.SC_CREATED).extract().response().getBody().asString();
+                .statusCode(status).extract().response().getBody().asString();
         System.out.println("Response " + response);
        return response;
     }

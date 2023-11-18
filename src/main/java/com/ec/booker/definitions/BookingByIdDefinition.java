@@ -21,9 +21,9 @@ public class BookingByIdDefinition {
         Assert.assertEquals("Tom", name);
     }
 
-    @Y("validare la respuesta por el firstname")
-    public void validateResponse() {
-        Assert.assertEquals("Tom", name);
+    @Y("validare la respuesta por el nombre {string}")
+    public void validateResponse(String firstname) {
+        Assert.assertEquals(firstname, name);
     }
 
 }

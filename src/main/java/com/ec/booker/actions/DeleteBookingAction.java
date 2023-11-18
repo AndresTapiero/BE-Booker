@@ -16,7 +16,7 @@ public class DeleteBookingAction {
     public void deleteBooking(String token, String id) {
         SerenityRest.given().log().all().baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON)
-                .header(COOKIE.getValue(), "token=" + token)
+                .header(COOKIE.getValue(), TOKEN_EQUAL.getValue() + token)
                 .when().delete(BOOKING.getPath() + "/" + id)
                 .then()
                 .statusCode(HttpStatus.SC_CREATED).log().all()

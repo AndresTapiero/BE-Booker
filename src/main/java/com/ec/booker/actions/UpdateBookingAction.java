@@ -1,10 +1,14 @@
 package com.ec.booker.actions;
 
 import com.ec.booker.models.createbooking.BookingModel;
+import com.ec.booker.utils.CsvUtils;
 import io.restassured.http.ContentType;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import org.apache.http.HttpStatus;
+
+import java.io.IOException;
+import java.util.Map;
 
 import static com.ec.booker.utils.constants.Constants.*;
 import static com.ec.booker.utils.constants.ServicesPaths.BOOKING;
@@ -16,7 +20,7 @@ public class UpdateBookingAction {
     @Step
     public void updateCompleteBooking(String token, BookingModel bookingModel, String id) {
         SerenityRest.given().log().all()
-                .header(COOKIE.getValue(), "token=" + token)
+                .header(COOKIE.getValue(), TOKEN_EQUAL.getValue() + token)
                 .baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON).body(bookingModel)
                 .when().put(BOOKING.getPath()+"/"+ id)
@@ -30,17 +34,17 @@ public class UpdateBookingAction {
     }
 
     @Step
-    public void updatePartialBooking(String token, BookingModel bookingModel, String id) {
+    public void updatePartialBooking(String token, BookingModel bookingModel, String name, String lastname, String id) {
         SerenityRest.given()
-                .header(COOKIE.getValue(), "token=" + token)
+                .header(COOKIE.getValue(), TOKEN_EQUAL.getValue() + token)
                 .baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON).body(bookingModel)
                 .when().patch(BOOKING.getPath()+"/"+ id)
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .assertThat()
-                .body(FIRST_NAME.getValue(), equalTo("Andrew"))
-                .body(LAST_NAME.getValue(), equalTo("Tapi"))
+                .body(FIRST_NAME.getValue(), equalTo(name))
+                .body(LAST_NAME.getValue(), equalTo(lastname))
                 .log().all();
     }
 }

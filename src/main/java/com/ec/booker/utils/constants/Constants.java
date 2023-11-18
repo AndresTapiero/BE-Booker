@@ -6,14 +6,13 @@ public enum Constants {
     AUTHORIZATION("Authorization"),
 
     TOKEN("token"),
+    TOKEN_EQUAL("token="),
     FIRST_NAME("firstname"),
     LAST_NAME("lastname"),
     TOTAL_PRICE("totalprice"),
     ADDITIONAL_NEEDS("additionalneeds"),
     COOKIE("Cookie"),
-    AUTHORIZATION_VALUE("Basic YWRtaW46cGFzc3dvcmQxMjM="),
-    BOOKING_ID("bookingid"),
-    CREATED("Created");
+    BOOKING_ID("bookingid");
 
     private String value;
 

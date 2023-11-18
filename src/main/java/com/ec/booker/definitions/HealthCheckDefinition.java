@@ -6,22 +6,20 @@ import io.cucumber.java.es.Entonces;
 import net.serenitybdd.annotations.Steps;
 import org.junit.Assert;
 
-import static com.ec.booker.utils.constants.Constants.CREATED;
-
 public class HealthCheckDefinition {
 
-    String status;
+    String response;
     @Steps
     HealthCheckAction checkAction;
 
-    @Dado("que hago ping al endpoint con con respuesta 201")
-    public void setCreateBookingAction() {
-        status = checkAction.ping();
+    @Dado("que hago ping al endpoint con respuesta {int}")
+    public void setCreateBookingAction(int status) {
+        response = checkAction.ping(status);
     }
 
-    @Entonces("validare el mensaje created")
-    public void validateResponse() {
-        Assert.assertEquals(CREATED.getValue(), status);
+    @Entonces("validare el mensaje {string}")
+    public void validateResponse(String message) {
+        Assert.assertEquals(message, response);
     }
 
 }

@@ -19,10 +19,10 @@ public class UpdateDefinition {
         updateBookingAction.updateCompleteBooking(token, completeBooking, (String.valueOf(CreateBookDefinition.id)));
     }
 
-    @Entonces("al actualizar validare los atributos nombre y apellido")
-    public void updatePartialBooking() {
+    @Entonces("al actualizar validare los atributos {string} y {string}")
+    public void updatePartialBooking(String name, String lastname) {
         BookingModel partialBooking = JsonFiles.getObjectJava("./src/test/resources/data/", "updatePartialBooking", BookingModel.class);
-        updateBookingAction.updatePartialBooking(token, partialBooking, (String.valueOf(CreateBookDefinition.id)));
+        updateBookingAction.updatePartialBooking(token, partialBooking, name, lastname, (String.valueOf(CreateBookDefinition.id)));
     }
 
 }

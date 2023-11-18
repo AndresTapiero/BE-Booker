@@ -5,6 +5,6 @@ Característica: Validar booking por id
     Dado que hago login
     Cuando cree un nuevo book
     Entonces valide en el servicio booking por id
-    Y validare la respuesta por el firstname
+    Y validare la respuesta por el nombre 'Tom'
 
 
