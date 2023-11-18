@@ -15,14 +15,14 @@ public class UpdateDefinition {
 
     @Entonces("al actualizar validare los atributos")
     public void updateCompleteBooking() {
-        BookingModel bookingModel = JsonFiles.getObjectJava("./src/test/resources/data/", "updateCompleteBooking", BookingModel.class);
-        updateBookingAction.updateCompleteBooking(token, bookingModel, (String.valueOf(CreateBookDefinition.id)));
+        BookingModel completeBooking = JsonFiles.getObjectJava("./src/test/resources/data/", "updateCompleteBooking", BookingModel.class);
+        updateBookingAction.updateCompleteBooking(token, completeBooking, (String.valueOf(CreateBookDefinition.id)));
     }
 
     @Entonces("al actualizar validare los atributos nombre y apellido")
     public void updatePartialBooking() {
-        BookingModel bookingModel = JsonFiles.getObjectJava("./src/test/resources/data/", "updatePartialBooking", BookingModel.class);
-        updateBookingAction.updatePartialBooking(token, bookingModel, (String.valueOf(CreateBookDefinition.id)));
+        BookingModel partialBooking = JsonFiles.getObjectJava("./src/test/resources/data/", "updatePartialBooking", BookingModel.class);
+        updateBookingAction.updatePartialBooking(token, partialBooking, (String.valueOf(CreateBookDefinition.id)));
     }
 
 }

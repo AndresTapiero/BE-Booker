@@ -14,7 +14,7 @@ public class HealthCheckDefinition {
     @Steps
     HealthCheckAction checkAction;
 
-    @Dado("que hago ping al endpointcon con respuesta 201")
+    @Dado("que hago ping al endpoint con con respuesta 201")
     public void setCreateBookingAction() {
         status = checkAction.ping();
     }

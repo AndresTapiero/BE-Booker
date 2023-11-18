@@ -1,4 +1,4 @@
-# Hello and Welcome to BE - Booking Automation Test.
+# Booking Automation Test.
 
 This project has an action class pattern with Cucumber and Serenity.  You can find the following packages.
 * actions
