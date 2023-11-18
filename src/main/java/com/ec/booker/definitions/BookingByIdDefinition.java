@@ -18,7 +18,6 @@ public class BookingByIdDefinition {
     public void getBookingById() {
         int id = CreateBookDefinition.id;
         name = getBookingsAction.getBookingById(String.valueOf(id));
-        Assert.assertEquals("Tom", name);
     }
 
     @Y("validare la respuesta por el nombre {string}")

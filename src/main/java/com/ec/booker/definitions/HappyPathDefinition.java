@@ -41,8 +41,8 @@ public class HappyPathDefinition {
 
 
 
-    @Cuando("cuando cree, actualice con nombre {string} y apellido {string}, elimine")
-    public void updateBooking(String firstName, String lastName) {
+    @Cuando("cuando cree, actualice con nombre {string} y apellido {string}, elimine respondiendo {int}")
+    public void updateBooking(String firstName, String lastName, int status) {
 
         token = loginAction.getTokenLogin(login);
         id = createBookingAction.createNewBooking(newBooking);
@@ -50,7 +50,7 @@ public class HappyPathDefinition {
         updateBookingAction.updateCompleteBooking(token, completeBooking, String.valueOf(id));
         name = getBookingsAction.getBookingById(String.valueOf(id));
         Assert.assertEquals("Michi", name);
-        deleteBookingAction.deleteBooking(token, String.valueOf(id));
+        deleteBookingAction.deleteBooking(token, status, String.valueOf(id));
     }
 
     @Entonces("validare que el flujo finalizo correctamente con mensaje {string}")

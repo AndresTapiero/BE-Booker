@@ -13,13 +13,13 @@ import static org.hamcrest.Matchers.equalTo;
 public class DeleteBookingAction {
 
     @Step
-    public void deleteBooking(String token, String id) {
+    public void deleteBooking(String token, int status,String id) {
         SerenityRest.given().log().all().baseUri(BASE_URI.getValue())
                 .contentType(ContentType.JSON)
                 .header(COOKIE.getValue(), TOKEN_EQUAL.getValue() + token)
                 .when().delete(BOOKING.getPath() + "/" + id)
                 .then()
-                .statusCode(HttpStatus.SC_CREATED).log().all()
+                .statusCode(status).log().all()
                 .assertThat();
     }
 }

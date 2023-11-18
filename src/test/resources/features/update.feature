@@ -11,5 +11,3 @@ Característica: Validar la actualizacion parcial y completa
     Dado que hago login
     Cuando  cree un nuevo book
     Entonces al actualizar validare los atributos 'Andrew' y 'Tapi'
-
-

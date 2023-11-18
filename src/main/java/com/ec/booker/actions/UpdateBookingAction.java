@@ -1,15 +1,10 @@
 package com.ec.booker.actions;
 
 import com.ec.booker.models.createbooking.BookingModel;
-import com.ec.booker.utils.CsvUtils;
 import io.restassured.http.ContentType;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import org.apache.http.HttpStatus;
-
-import java.io.IOException;
-import java.util.Map;
-
 import static com.ec.booker.utils.constants.Constants.*;
 import static com.ec.booker.utils.constants.ServicesPaths.BOOKING;
 import static org.hamcrest.Matchers.equalTo;

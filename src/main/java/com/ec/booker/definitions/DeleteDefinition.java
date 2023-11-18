@@ -10,9 +10,9 @@ public class DeleteDefinition {
     @Steps
     DeleteBookingAction deleteBookingAction;
 
-    @Entonces("al eliminar mostrara el status Created")
-    public void updateCompleteBooking() {
-        deleteBookingAction.deleteBooking(token, String.valueOf(CreateBookDefinition.id));
+    @Entonces("al eliminar mostrara el status {int} Created")
+    public void updateCompleteBooking(int status) {
+        deleteBookingAction.deleteBooking(token, status,String.valueOf(CreateBookDefinition.id));
     }
 
 }
