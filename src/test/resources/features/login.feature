@@ -1,8 +1,21 @@
-#language: es
-Característica: Validar login exitoso
-
-  Escenario: Validar login exitoso que responde un token
-    Dado que hago login
-    Entonces validare que el token no sea null o vacio
+Feature: Authentication Testing
 
 
+  @smoke @happy-path
+  Scenario Outline: Successful user authentication
+    When a POST request is made with username "<username>" and password "<password>"
+    Then the response status code should be <status_code>
+    And validate the response with a JSON Schema "authCreateToken"
+    And the response should contain a token
+    Examples:
+      | username | password    | status_code |
+      | admin    | password123 | 200         |
+
+  @smoke @unhappy-path
+  Scenario Outline: Failed Authentication
+    When a POST request is made with username "<username>" and password "<password>"
+    Then the response status code should be <status_code>
+    And the response should contain the text "Bad credentials"
+    Examples:
+      | username    | password    | status_code |
+      | invaliduser | invalidpass | 200         |

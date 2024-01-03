@@ -1,7 +1,6 @@
 package com.ec.booker.actions;
 
 import net.serenitybdd.annotations.Step;
-import net.serenitybdd.rest.SerenityRest;
 import org.junit.Assert;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -12,7 +11,7 @@ public class GeneralActions {
 
     @Step
     public void verifyStatusCode(int statusCode) {
-        SerenityRest.then().statusCode(statusCode);
+        then().statusCode(statusCode);
     }
 
     @Step
@@ -22,7 +21,7 @@ public class GeneralActions {
 
     @Step
     public void validateText(String message) {
-        String text = SerenityRest.then().extract().response().getBody().asString();
+        String text = then().extract().response().getBody().asString();
         Assert.assertEquals(text, message);
     }
 }
