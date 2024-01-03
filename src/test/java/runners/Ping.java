@@ -7,6 +7,6 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = "pretty",
-        features = "src/test/resources/features/health_check.feature",
+        features = "src/test/resources/features/ping.feature",
         glue = {"com.ec.booker.definitions"})
-public class HealthCheck {}
+public class Ping {}

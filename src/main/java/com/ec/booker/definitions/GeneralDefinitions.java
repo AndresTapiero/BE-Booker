@@ -1,6 +1,7 @@
 package com.ec.booker.definitions;
 
 import com.ec.booker.actions.GeneralActions;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.annotations.Steps;
 
@@ -18,5 +19,10 @@ public class GeneralDefinitions {
     @Then("validate the response with a JSON Schema {string}")
     public void validateResponseWithAJSONSSchema(String jsonSchema) {
         generalActions.validateWithJsonSchema(jsonSchema);
+    }
+
+    @And("the response text is {string}")
+    public void validateMessage(String message) {
+        generalActions.validateText(message);
     }
 }
