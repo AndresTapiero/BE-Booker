@@ -12,7 +12,7 @@ public class DeleteDefinition {
 
     @Entonces("al eliminar mostrara el status {int} Created")
     public void updateCompleteBooking(int status) {
-        deleteBookingAction.deleteBooking(token, status,String.valueOf(CreateBookDefinition.id));
+        deleteBookingAction.deleteBooking(token, status, String.valueOf(CreateBookDefinition.id));
     }
 
 }

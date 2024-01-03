@@ -9,4 +9,4 @@ import org.junit.runner.RunWith;
         plugin = "pretty",
         features = "src/test/resources/features/create_booking.feature",
         glue = {"com.ec.booker.definitions"})
-public class Create {}
+public class CreateNewBooking {}
